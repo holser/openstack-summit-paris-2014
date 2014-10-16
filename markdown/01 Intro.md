@@ -6,7 +6,7 @@ Definitions and Scope of this talk
 + No force majeure events
 + Uncommon physical destruction (not deterioration) 
   if components
-+ Third World War and Zombie Apocalypse
++ Zombie Apocalypse
 
 Note: First of all, before we start talking about OpenStack and its underlying components themselves, let's define High Availability and part of High Availability we are going to cover in this talk.
 
