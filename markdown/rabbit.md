@@ -1,5 +1,4 @@
-RabbitMQ OCF script
-===================
+# RabbitMQ OCF script
 
 Hard to reassemble RabbitMQ cluster
 

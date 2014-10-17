@@ -7,7 +7,7 @@
 		<title>How we fought for High Availability</title>
 
 		<meta name="description" content="A Presentation about High Availability in OpenStack based on Mirantis OpenStack">
-		<meta name="author" content="Vladimir Kuklin & Sergii Golovatiuk">
+		<meta name="author" content="Vladimir Kuklin, Sergii Golovatiuk">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -42,52 +42,75 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
+
 				<section>
-					<h1>How we fought for OpenStack HA</h1>
+					<h1>How we fought for High Availability?</h1>
 					<p>
 						<small>Created by <a href="https://github.com/aglarendil">Vladimir Kuklin</a></small>
             <small>and <a href="https://github.com/holser">Sergii Golovatiuk</a></small>
 					</p>
+          <aside class="notes">
+            Let me introduce ...
+              Vladimir Kuklin
+              Sergii Golovatiuk
+          </aside>
 				</section>
 
-				<section>
-          <section>
-            <h2>This slide should contain the general OpenStack Diagram</h2>
-            <aside class="notes">
-             Here is a classical diagram of OpenStack and its loosely coupled components
-             DevStack - developers doesn't roll out HA environments every day.
+        <section id="general_ha" data-markdown="markdown/01-Intro.md"
+          data-separator="^\n\n\n" data-vertical="^\n\n"  data-notes="^Note:">
+        </section>
 
-             During the development cycle of 5.1, our CI performed X builds with HA tests
-             Our Quality Assurance tested many scenarios
-             We worked shoulder to shoulder with Developers - as a pure Dev-Ops team
-            </aside>
-          </section>
-          <section id="general_ha" data-markdown="markdown/01 Intro.md"
-          data-separator="^\n\n\n" data-vertical="^\n\n"  data-notes="^Note:" >
-          </section>
-		</section>
         <section>
-          <section id="fragments">
-            <h1>OpenStack HA</h1>
-            <p>Fault Tolerance for each component</p>
-            <ol>
-              <li class="fragment">AMQP - Rabbit MQ</li>
-              <li class="fragment">DataBase - MySQL with Galera</li>
-              <li class="fragment">API services</li>
-              <li class="fragment">Neutron/Heat/Ceilometer</li>
-            </ol>
-          </section>
+          <h2>OpenStack Architecture</h2>
+          <img src="images/openstack-arch.svg" alt="OpenStack Architecture" style="background: rgba(255, 255, 255, 1);">
+          <aside class="notes">
+            Here is a classical diagram of OpenStack and its loosely coupled components.
+            What is the main problems with all these componts? 
+            You should organize High Availability for all of these components. So, in reality you should have at least 2 copies of these elements. However, I would suggest to have at least 3 copies to eleminate split brain scenarios you may have.
+            All components should be ready for High Availability. Some of them might be under arbitrary control, Some of them may have own healing mechanisms.
+          </aside>
         </section>
+
+        <section id="openstack_ha_stack" data-markdown="markdown/03-OpenStack-HA-Stack.md"
+          data-separator="^\n\n\n" data-vertical="^\n\n"  data-notes="^Note:">
+        </section>
+
+        <section id="fragments">
+          <h1>OpenStack HA Stack</h1>
+          <p>Fault Tolerance of every component</p>
+          <ol>
+            <li class="fragment">Network connectivity</li>
+            <li class="fragment">Database -MySQL/Galera</li>
+            <li class="fragment">AMQP - Rabbit MQ</li>
+            <li class="fragment">Memcache</li>
+            <li class="fragment">API services</li>
+            <li class="fragment">Neutron/Heat/Ceilometer</li>
+          </ol>
+          <aside class="notes">
+            To Provide High Availability to a system. We should provide connectivity to all components. No brainer. We will not cover High Availability for DataCenter components such as Power, Cooling. All these requirements are well described in Uptime Insitute Documents. Our primary focus is OpenStack services. So ...<br /><br />
+
+            Network Connectivity. <br /><br />
+
+            Out of the box Fuel provides several options such as Active-Passive Connection or more advanced LACP (802.1ad) network connection. However, we still have separate connection for PXE network booting.<br /><br />
+
+            DataBase.<br /><br />
+          </aside>
+        </section>
+
+        <section id="database_galera" data-markdown="markdown/04-Galera.md"
+          data-separator="^\n\n\n" data-vertical="^\n\n"  data-notes="^Note:">
+        </section>
+
         <section>
-	<section>
-          <h1>AMQP - Rabbit</h1>
-          <p>Problems:<br>
-          RabbitMQ server doesn't reassemble easily</p>
-          <p>Complex OCF Master/Slave script:</p>
-        </section>
-	<section id="rabbit_ocf" data-markdown="markdown/rabbit.md"
-	data-separator="^\n\n\n" data-vertical="^\n\n"  data-notes="^Note:" >
-	</section>
+          <section>
+            <h1>AMQP - Rabbit</h1>
+            <p>Problems:<br>
+            RabbitMQ server doesn't reassemble easily</p>
+            <p>Complex OCF Master/Slave script:</p>
+          </section>
+          <section id="rabbit_ocf" data-markdown="markdown/rabbit.md"
+            data-separator="^\n\n\n" data-vertical="^\n\n"  data-notes="^Note:" >
+          </section>
         </section>
         <section>
           <h2>AMQP - oslo.messaging</h2>
@@ -96,25 +119,28 @@
             <li>Oslo.messaging lacks of <a href="https://bugs.launchpad.net/mos/+bug/856764">heartbeats</a></li>
           </ul>
         </section>
-        <section>
-          <h1>Database - Galera</h1>
-        </section>
-        <section>
-          <h1>DB - Oslo</h1>
-        </section>
+
         <section>
           <h1>API services </h1>
         </section>
+
         <section>
-          <h1>Keystone -> Memcache</h1>
+          <h1>Keystone</h1>
         </section>
+
+        <section id="neutron" data-markdown="markdown/neutron.md"
+          data-separator="^\n\n\n" data-vertical="^\n\n"  data-notes="^Note:" >
+        </section>
+
         <section>
           <h1>Heat/Ceilometer</h1>
         </section>
-<section id="neutron" data-markdown="markdown/neutron.md"
-data-separator="^\n\n\n" data-vertical="^\n\n"  data-notes="^Note:" >
-</section>
-<section>
+        
+        <section>
+          <h1>Ceph</h1>
+        </section>
+
+        <section>
 					<section id="deployment_1" data-markdown="markdown/deployment/01.md"
 					data-separator="^\n\n\n" data-vertical="^\n\n"  data-notes="^Note:" >
 				  </section>
@@ -128,37 +154,41 @@ data-separator="^\n\n\n" data-vertical="^\n\n"  data-notes="^Note:" >
 					data-separator="^\n\n\n" data-vertical="^\n\n"  data-notes="^Note:" >
 					</section>
         </section>
-        <section>
-                <h1>Current challenges and plans for the future</h1>
-                <ol>
-                        <li>OSLO.db resilience</li>
-                        <li>Event-driven failover and evacuation (e.g. Zabbix triggers)</li>
-                        <li>zeroMQ research</li>
-                        <li>VRRP and DVR testing and (if needed) polishing </li>
-                        <li>Fencing support</li>
-                        <li>Sophisticated load balancing of services</li>
-                        <li>Integration with hardware load balancers (e.g. F5)</li>
-                </ol>
 
-        </section>
         <section>
-                <h1>Links</h1>
-                <ol>
-                        <li><a href=http://wiki.openstack.org/Fuel>http://wiki.openstack.org/Fuel</a></li>
-                        <li><a href=http://github.com/stackforge/fuel-library.git>http://github.com/stackforge/fuel-library.git</a></li>
-                        <li>fuel-dev ML & #fuel-dev @ freenode</a></li>
-                        <li><a href=https://etherpad.openstack.org/p/fuel-ha-fixes-catalogue>https://etherpad.openstack.org/p/fuel-ha-fixes-catalogue</a></li>
-                </ol>
-
+          <h1>Testing HA</h1>
         </section>
 
-				<section>
-					<h1>Questions?</h1>
-					<p>
-						<small>Created by <a href="https://github.com/aglarendil">Vladimir Kuklin</a></small>
-            <small>and <a href="https://github.com/holser">Sergii Golovatiuk</a></small>
-					</p>
-				</section>
+        <section>
+          <h1>Current challenges and plans for the future</h1>
+          <ol>
+            <li>OSLO.db resilience</li>
+            <li>Event-driven failover and evacuation (e.g. Zabbix triggers)</li>
+            <li>zeroMQ research</li>
+            <li>VRRP and DVR testing and (if needed) polishing </li>
+            <li>Fencing support</li>
+            <li>Sophisticated load balancing of services</li>
+            <li>Integration with hardware load balancers (e.g. F5)</li>
+          </ol>
+        </section>
+
+        <section>
+          <h1>Links</h1>
+          <ol>
+            <li><a href=http://wiki.openstack.org/Fuel>http://wiki.openstack.org/Fuel</a></li>
+            <li><a href=http://github.com/stackforge/fuel-library.git>http://github.com/stackforge/fuel-library.git</a></li>
+            <li>fuel-dev ML &amp; #fuel-dev @ freenode</a></li>
+          <li><a href=https://etherpad.openstack.org/p/fuel-ha-fixes-catalogue>https://etherpad.openstack.org/p/fuel-ha-fixes-catalogue</a></li>
+        </ol>
+      </section>
+
+      <section>
+        <h1>Questions?</h1>
+        <p>
+        <small>Created by <a href="https://github.com/aglarendil">Vladimir Kuklin</a></small>
+        <small>and <a href="https://github.com/holser">Sergii Golovatiuk</a></small>
+        </p>
+      </section>
 
 			</div>
 

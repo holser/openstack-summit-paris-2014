@@ -1,8 +1,7 @@
-Definitions and Scope of this talk
-==================================
+# Definitions and Scope of this talk
 
 + Failure of one of the components
- at one moment of the time
+  at one moment of the time
 + No force majeure events
 + Uncommon physical destruction (not deterioration) 
   if components
@@ -13,12 +12,6 @@ Note: First of all, before we start talking about OpenStack and its underlying c
 High Availability is a characteristic of a system that retains certain level of availability even if system is exposed to failures.
 
 Scope of this talk is about retaining availability of OpenStack cluster in case of failure of one of the underlying components:
-
-1.	DB instance
-2.	AMQP broker instance
-3.	Particular OpenStack service daemon
-4.	Memcached
-5.	...
 
 We do not consider:
 1. Simultaneous failure of several components
