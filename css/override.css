@@ -32,3 +32,13 @@
 }
 
 .reveal h1 { font-size: 3.2em ; }
+
+/* Mirantis logo */
+.reveal .mirantis-logo {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+  height: 100px;
+  margin: 20px 0 0 20px;
+}
