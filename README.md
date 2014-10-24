@@ -12,29 +12,31 @@ This presentation uses external markdown and speaker note, it is required that p
 
 3. Clone the Presentation Repository
    ```sh
-   $ git clone https://github.com/holser/openstack-summit-paris-2014.git
+   $ git clone --recursive https://github.com/holser/openstack-summit-paris-2014.git
   ```
 
-3. Navigate to openstack-summit-paris-2014 folder
+4. Navigate to openstack-summit-paris-2014 folder
    ```sh
    cd openstack-summit-paris-2014
    ```
 
-4. Install dependencies
+5. Install dependencies
    ```sh
    $ npm install
    ```
 
-5. Serve the presentation and monitor source files for changes
+6. Serve the presentation and monitor source files for changes
    ```sh
    $ grunt serve
    ```
 
-6. Open <http://localhost:8000> to view your presentation
+7. Open <http://localhost:8000> to view your presentation
 
    You can change the port by using `grunt serve --port 8001`.
 
-7. Press **s** to see speaker notes, **esc** to see the structure of presentation
+8. Press **s** to see speaker notes, **esc** to see the structure of presentation
+
+9. Press **f** for presentation mode
 
 ## Authors
 
