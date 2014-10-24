@@ -4,6 +4,8 @@ Hard to reassemble RabbitMQ cluster
 
 Each Rabbit node tries to connect to previous queue Master
 
+<Picture here>
+==============
 
 OCF script:
 
