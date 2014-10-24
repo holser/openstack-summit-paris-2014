@@ -1,5 +1,9 @@
 # Database - MySQL/Galera
 
+
+# Galera Diagram 
+![Galera](images/galera.png)
+
 Note: 
 Why Galera? Sometimes, I hear that Galera is too complex. DRBD is easy solution which is enough for reliability of Database. Firstly, DRBD block replication is not native mechanism for MySQL. Secondly, you cannot scale with DRBD. 
 
