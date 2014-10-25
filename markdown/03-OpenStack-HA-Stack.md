@@ -13,21 +13,21 @@ Note: To Provide High Availability to a system. We should provide connectivity t
 
 Our primary focus is OpenStack Controllers and Compute nodes. So ...
 
-Network Connectivity. 
+Network Connectivity: 
 
 Out of the box we provide several options such as Active-Passive Connection or more advanced LACP (802.1ad) network connection. However, we still have separate connection for PXE network booting.
 
-DataBase - MySQL
+DataBase - MySQL:
 
 We started working on DB HA with galera and achieved good results by optimizing management of Galera cluster with pacemaker.
 
-AMQP - Rabbit
+AMQP - Rabbit:
 
 AMQP is a crucial part of OpenStack architecture. Death of the particular controller should not affect availability of service. We had to modify both deployment mechanism of rabbitmq and OpenStack messaging code to make it work.
 
-Memcache
+Memcache:
 
-We need also be sure that all the services using memcached retain ability to serve requests in case of memcached server death.
+Memcache is We need also be sure that all the services using memcached retain ability to serve requests in case of memcached server death.
 
 Storage
 
