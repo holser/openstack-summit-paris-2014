@@ -4,7 +4,7 @@
   at one moment of the time
 + No force majeure events
 + Uncommon physical destruction (not deterioration) 
-  if components
+  of components
 + Zombie Apocalypse
 
 Note: First of all, before we start talking about OpenStack and its underlying components themselves, let's define High Availability and part of High Availability we are going to cover in this talk.
@@ -16,5 +16,5 @@ Scope of this talk is about retaining availability of OpenStack cluster in case 
 We do not consider:
 1. Simultaneous failure of several components
 2. Force majeures and natural disasters
-3. Common failure events - poweroff, kernel panic, network partitioning
+3. Non-common failure events (poweroff, kernel panic, network partitioning)
 4. Physical destruction of the hardware (hammers, bombs, zombies)

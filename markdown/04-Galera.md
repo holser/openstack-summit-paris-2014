@@ -1,8 +1,18 @@
-# Database - MySQL/Galera
-
-
 # Galera Diagram 
 ![Galera](images/galera.png)
+
+
+# Database - MySQL/Galera
+- Clone-based
+- Use latest GTID info for master election:
+    - From Galera itselves
+    - From grastate.dat
+- Start master with empty gcomm://
+- MySQL 5.6.11
+- XtraBackup
+- HaProxy + xinetd httpcheck
+- [not yet done] real master-slave for operators convenience
+- Optimistic locking and OSLO.db clash
 
 Note: 
 Why Galera? Sometimes, I hear that Galera is too complex. DRBD is easy solution which is enough for reliability of Database. Firstly, DRBD block replication is not native mechanism for MySQL. Secondly, you cannot scale with DRBD. 
