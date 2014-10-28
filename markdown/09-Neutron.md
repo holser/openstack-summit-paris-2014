@@ -5,7 +5,7 @@ Neutron
 -	Managing Neutron agents
 	-	Clean everything on stop start actions:
 		-	Interfaces
-			-	Child Processes (dnsmasq, metadata proxy)
+		-	Child Processes (dnsmasq, metadata proxy)
 	-	Entities rescheduling after migration
 	-	WIP: API handler and rescheduling using internal Neutron mechanism
 

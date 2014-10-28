@@ -23,5 +23,7 @@ Note: While working on rabbitmq resilience we noticed that rabbitmq server behav
 -	Let Pacemaker elect the master
 -	Create 'master' attribute in CIB
 -	Start 'master' app - attach 'slave' nodes to the 'master'
+-       Each running rabbit is checked if it is connected to the master node
+-       If rabbit app cannot start or join or whatever - reset it
 
 Also we are working now on the mechanism of RabbitMQ cluster member fencing because in case of controller failure for sometime Rabbit cluster becomes unavailable as it issues RPC multicall with rather big timeout which hangs for a while waiting for the dead node to answer.
