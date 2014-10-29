@@ -8,14 +8,14 @@
 
 Note:
 
-We strongly believe that temporary data should be kept in key value storages.
+We strongly believe that temporary data should be kept in key value stores.
 Firstly, there is no need to keep temporary data in database. Secondly, what will
-happen if we lose this data? Correct, on next operation the client or service will
+happen if we lose this data? Correct, on the next operation, the client or service will
 get a new token using standard authentication method.
-In order to maintain keystone resilience we added memcached support for tokens,
-but then we figured out that dead controller may lead to 6 seconds lag in
-operations and makes cluster unusable. We started searching for another solution,
-but pylibmc was not eventet-safe. So we wrote a driver that supported
+In order to maintain keystone resilience, we added memcached support for tokens,
+but then we figured out that a dead controller may lead to 6 seconds lag in
+operations and makes the cluster unusable. We started searching for another solution,
+but pylibmc was not eventlet-safe. So we wrote a driver that supported
 connection pooling for memcached. Nevertheless, there are still some
 problems with python-memcached as it has some broken logic for keys sharding,
-which we are working to merge fix for.
+which we are working to merge a fix for.
