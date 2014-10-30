@@ -19,15 +19,15 @@ While working on RabbitMQ resilience, we noticed that RabbitMQ server behaviour 
 -	overall control is made by pacemaker notifies
 -	check if we can start RabbitMQ server app
 -	reset RabbitMQ if it stucks and try again
--	check if node is clustered with the *master*
+-	check if node is clustered with the **master**
 
 Note: Speaker - Vladimir Kuklin:
 
-In order to automate RabbitMQ reassemblance we created OCF script for RabbitMQ that leverages Pacemaker master/slave resources and notification mechanism for *cloned* resources.
+In order to automate RabbitMQ reassemblance we created OCF script for RabbitMQ that leverages Pacemaker master/slave resources and notification mechanism for **cloned** resources.
 
 -	Fire up beam processes
 -	Let Pacemaker elect the master
--	Create 'master' attribute in CIB
--	Start 'master' app - attach *slave* nodes to the *master*
+-	Create **master** attribute in CIB
+-	Start **master** app - attach **slave** nodes to the **master**
 - Each running rabbit is checked if it is connected to the master node
 - If rabbit app cannot start or join or whatever - reset it
