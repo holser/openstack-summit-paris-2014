@@ -1,4 +1,4 @@
 # Testing HA
 
-Note:
+Note: Speaker - Sergii Golovatiuk:
 

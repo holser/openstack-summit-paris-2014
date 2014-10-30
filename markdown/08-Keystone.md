@@ -1,21 +1,24 @@
 # Keystone
 
-- tokens in Memcache
-- dogpile driver with python-memcached broken - dead server => 6 secs lag for each operation
-- pylibmc non-eventlet-safe
+- tokens in memcached
+- dogpile driver with python-memcached broken
+- pylibmc is non eventlet safe
 - Y. Taraday wrote newer driver with connection pool
 - Low-probability (1.6%) bugs in python-memcached
 
-Note:
+Note: Speaker - Sergii Golovatiuk
 
 We strongly believe that temporary data should be kept in key value stores.
-Firstly, there is no need to keep temporary data in database. Secondly, what will
-happen if we lose this data? Correct, on the next operation, the client or service will
+
+What will happen if we lose this data? Correct, on the next operation, the client or service will
 get a new token using standard authentication method.
+
 In order to maintain keystone resilience, we added memcached support for tokens,
-but then we figured out that a dead controller may lead to 6 seconds lag in
-operations and makes the cluster unusable. We started searching for another solution,
-but pylibmc was not eventlet-safe. So we wrote a driver that supported
-connection pooling for memcached. Nevertheless, there are still some
-problems with python-memcached as it has some broken logic for keys sharding,
+but then we figured out that a dead controller with memcached instance may lead to 6 seconds lag in
+operations and makes the cluster unusable. 
+
+We started looking for another solution, we tried pylibmc which is nice implementation of was not eventlet-safe.
+Y. Taraday wrote a driver that supported connection pooling for memcached.
+
+Nevertheless, there are still some problems with python-memcached as it has some broken logic for keys sharding,
 which we are working to merge a fix for.

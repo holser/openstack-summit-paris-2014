@@ -1,29 +1,33 @@
-# RabbitMQ OCF script
+# RabbitMQ
 
 Hard to reassemble RabbitMQ cluster
-
 Each Rabbit node tries to connect to previous queue Master
 
-<Picture here>
-==============
+Note: Speaker - Vladimir Kuklin:
 
-OCF script:
+While working on RabbitMQ resilience, we noticed that RabbitMQ server behaviour is not always obvious and clear. E.g. in case of 3-node cluster if you do hard reset of the cluster RabbitMQ along with erlang kernel it usually becomes very vulnerable to race conditions and there is not much you can do about it. 
+
+# RabbitMQ - OCF Script Architecture
+
+![ImageHere](Image)
+
+
+# RabbitMQ - OCF Script
 
 -	pseudo-Master/Slave
 -	Start action == beam start
 -	overall control is made by pacemaker notifies
--	check if we can start rabbit server app
--	reset rabbit if it stucks and try again
--	check if node is clustered with the 'master'
--	[not yet implemented] rabbit node fencing
+-	check if we can start RabbitMQ server app
+-	reset RabbitMQ if it stucks and try again
+-	check if node is clustered with the *master*
 
-Note: While working on rabbitmq resilience, we noticed that rabbitmq server behaviour is not always obvious and clear. E.g. in case of 3-node cluster if you do hard reset of the cluster rabbit along with erlang kernel it uses becomes very vulnerable to race conditions and there is not much you can do about it. In order to automate rabbitmq reassemblance we created rabbitmq ocf script that leverages pacemaker master/slave resources and notification mechanism for 'cloned' resources.<There should go a big picture with the flow> What we really do:
+Note: Speaker - Vladimir Kuklin:
+
+In order to automate RabbitMQ reassemblance we created OCF script for RabbitMQ that leverages Pacemaker master/slave resources and notification mechanism for *cloned* resources.
 
 -	Fire up beam processes
 -	Let Pacemaker elect the master
 -	Create 'master' attribute in CIB
--	Start 'master' app - attach 'slave' nodes to the 'master'
--       Each running rabbit is checked if it is connected to the master node
--       If rabbit app cannot start or join or whatever - reset it
-
-Also we are working now on the mechanism of RabbitMQ cluster member fencing because in case of controller failure for sometime Rabbit cluster becomes unavailable as it issues RPC multicall with rather big timeout which hangs for a while waiting for the dead node to answer.
+-	Start 'master' app - attach *slave* nodes to the *master*
+- Each running rabbit is checked if it is connected to the master node
+- If rabbit app cannot start or join or whatever - reset it

@@ -7,7 +7,9 @@
   of components
 + Zombie Apocalypse
 
-Note: First of all, before we start talking about OpenStack and its underlying components individually, let's define High Availability and what kind of High Availability we are going to cover in this talk.
+Note: Speaker - Vladimir Kuklin:
+
+First of all, before we start talking about OpenStack and its underlying components individually, let's define High Availability and what kind of High Availability we are going to cover in this talk.
 
 High Availability is a characteristic of a system that retains a certain level of availability, even if the system is exposed to failures.
 
@@ -17,4 +19,4 @@ We do not consider:
 1. Simultaneous failure of several components
 2. Force majeure and natural disasters
 3. Non-common failure events (poweroff, kernel panic, network partitioning)
-4. Physical destruction of the hardware (hammers, bombs, zombies)
+4. Physical destruction of the hardware (hammers, bombs and zombies of course)

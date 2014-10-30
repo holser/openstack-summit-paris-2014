@@ -2,7 +2,8 @@
 
 ![OpenStack Diagram](images/openstack-arch.svg) <!-- class="fragment" -->
 
-Note:
+Note: Speaker - Golovatiuk Sergii:
+
 Here is a classical diagram of OpenStack and its loosely coupled components.
 
 What are the main problems with each of these components? 
