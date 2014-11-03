@@ -1,5 +1,5 @@
 # OpenStack HA Stack
-Fault Tolerance of every component
+##### Fault Tolerance of every component
 
 - Network Connectivity <!-- .element: class="fragment" -->
 - Database - MySQL <!-- .element: class="fragment" -->
