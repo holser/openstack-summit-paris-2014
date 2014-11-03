@@ -1,11 +1,13 @@
 # Definitions and Scope of this talk
 
+In the scope
 + Failure of a single component
   at a single point in time
-+ No force majeure events
+
+Out of the scope:
++ Force majeure events
 + Uncommon physical destruction (not deterioration)
   of components
-+ Zombie Apocalypse
 
 Note: Speaker - Vladimir Kuklin:
 
@@ -13,10 +15,9 @@ First of all, before we start talking about OpenStack and its underlying compone
 
 High Availability is a characteristic of a system that retains a certain level of availability, even if the system is exposed to failures.
 
-Scope of this talk is about retaining availability of OpenStack cluster in case of failure of one of its underlying components:
+Scope of this talk is about retaining availability of OpenStack cluster in case of failure of one of its underlying components.
 
 We do not consider:
 1. Simultaneous failure of several components
 2. Force majeure and natural disasters
-3. Non-common failure events (poweroff, kernel panic, network partitioning)
-4. Physical destruction of the hardware (hammers, bombs and zombies of course)
+3. Physical destruction of the hardware
