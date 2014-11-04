@@ -7,6 +7,7 @@
 - event-driven failover and evacuations
 - memcached-related fixes
 - zeroMQ research
+- gate for HA tests
 
 Note: Speaker - Sergii Golovatiuk:
 
@@ -35,3 +36,6 @@ ZeroMQ research:
 
 Despite some big cloud installations show that zeromq may be a useful replacement for messaging, current oslo.messaging driver for zeromq is in a poor state. So we are going to research whether it maybe applicable for HA-enabled production ready installations.
 
+HA tests:
+
+As we already have a well working testing framework for highly available deployment and we are really close to provide ability for community FUEL ISO to deploy vanilla openstack from particular commits, we are going to add HA tests gating to indicate whether each particular commit is not affecting HA.

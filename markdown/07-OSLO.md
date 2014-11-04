@@ -5,9 +5,9 @@
     - 1st heartbeat implementation was broken
     - messaging code was still referencing dead objects
     - even kernel could not help
-    - connections containing ZERO channels
+    - connections containing ZERO channels    
 
-#### Good news: fix is on review
+ <br /> <center><!-- .element: class="fragment" -->Good news: fix is on review </center>
 
 Note: Speaker - Vladimir Kuklin
 

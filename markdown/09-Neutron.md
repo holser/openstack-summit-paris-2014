@@ -1,11 +1,11 @@
 # Neutron
 
 -	API under HAproxy
--	Managing Neutron agents
-	-	Clean everything on stop start actions:
+-	managing Neutron agents
+	-	clean everything on stop start actions:
 		-	Interfaces
 		-	Child Processes (dnsmasq, metadata proxy)
-	-	Entities rescheduling after migration
+	-	entities rescheduling after migration
 	-	WIP: API handler and rescheduling using internal Neutron mechanism
 
 Note: Speaker - Vladimir Kuklin:

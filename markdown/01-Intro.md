@@ -1,10 +1,10 @@
 # Definitions and Scope of this talk
-\+ Failure of a single component
+\+ failure of a single component
   at a single point in time
 
-\- Force majeure events
+\- force majeure events
 
-\- Uncommon physical destruction (not deterioration)
+\- uncommon physical destruction (not deterioration)
   of components
 
 Note: Speaker - Vladimir Kuklin:

@@ -1,7 +1,7 @@
 # Main deployment <br /> components
 
--	Corosync/Pacemaker manifests
--	Haproxy with conf.d patch + manifests
+-	corosync/pacemaker manifests
+-	haproxy with conf.d patch + manifests
 -	NS contained resources
 
 Note: Speaker - Vladimir Kuklin:
@@ -18,13 +18,13 @@ These were:
 
 # Corosync/pacemaker manifests: part 1
 
--	Not all resource types supported:
-    -	Constraints (e.g. location) support
-    -	Master/slave resources not supported
--	Puppet service type provider for pacemaker:
-    - Parses LRM of alive nodes
-    - Waits for status change with respect to timeouts
-    - Handles timeouts depending on defaults or user-specified values
+-	not all resource types supported:
+    -	constraints (e.g. location) support
+    -	master/slave resources not supported
+-       puppet service type provider for pacemaker:
+    - parses LRM of alive nodes
+    - waits for status change with respect to timeouts
+    - handles timeouts depending on defaults or user-specified values
 -	[5.1 release] Shadow approach broken => Moved to xml patches instead
 
 Note: Speaker - Vladimir Kuklin:
@@ -41,6 +41,7 @@ it was sometimes overwriting cluster attributes during deployment changes and th
 desynchronization led to deployment failures. So we leveraged pacemaker support for
 XML diff CIB modification and rewrote all the providers to support it.
 
+
 # Corosync/pacemaker manifests: part 2 - stability
 
 -	[5.1 release] asymmetric cluster:
@@ -48,8 +49,8 @@ XML diff CIB modification and rewrote all the providers to support it.
 		-	enabled by 0 location constraint ("unbanning")
 		-	clones started locally
 		-	primitives started only once
-- Tuning of sql drivers
-- Short kernel tcp keepalives
+- tuning of sql drivers
+- short kernel tcp keepalives
 
 Note: Speaker - Vladimir Kuklin:
 
@@ -63,12 +64,14 @@ on the type of resource. If resource is a primitive, then we check its status
 globally. For cloned resources we check status locally. Also in order to make
 deployment stable enough, we added short kernel TCP keepalives to kill hanging
 connections in less than a minute along with timeouts tuning for SQL.
+
+
 # Corosync/pacemaker manifests: part 3 - HA scalability
 
-- Multicast problems =>
+- multicast problems =>
   switched to unicast by default 
-- Need to alter and restart corosync => pacemaker maintenance mode
-- Galera transitional sync => Limit on parallel controllers
+- need to alter and restart corosync => pacemaker maintenance mode
+- galera transitional sync => limit on parallel controllers
 
 Note: Speaker - Vladimir Kuklin:
 
