@@ -11,7 +11,7 @@
 
 Note: Speaker - Vladimir Kuklin:
 
-To Provide High Availability to a system, we should provide connectivity to all components. No brainer. We will not cover High Availability for DataCenter components such as Power, Cooling. All these requirements are well described in Uptime Institute Documents.
+To Provide High Availability to a system, we should provide connectivity to all components. No brainer. We will not cover High Availability for DataCenter components such as Power, Cooling, Chilling or Network Connectivity.
 
 Our primary focus is OpenStack Controllers and Compute nodes. So ...
 
