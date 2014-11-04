@@ -16,6 +16,7 @@ High Availability is a characteristic of a system that retains a certain level o
 Scope of this talk is about retaining availability of OpenStack cluster in case of failure of one of its underlying components.
 
 We do not consider:
+
 1. Simultaneous failure of several components
 2. Force majeure and natural disasters
 3. Physical destruction of the hardware

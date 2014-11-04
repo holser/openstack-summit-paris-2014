@@ -1,6 +1,6 @@
 # OpenStack Architecture
 
-![OpenStack Diagram](images/openstack-arch.svg) <!-- class="fragment" -->
+<img src="images/openstack-arch.svg" alt="OpenStack Architecture" style="background: rgba(255, 255, 255, 1);">
 
 Note: Speaker - Golovatiuk Sergii:
 
