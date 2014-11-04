@@ -4,7 +4,7 @@
 - dogpile driver with python-memcached broken
 - pylibmc is non eventlet safe
 - Y. Taraday wrote newer driver with connection pool
-- Low-probability (1.6%) bugs in python-memcached
+- there are still bugs in python-memcached
 
 Note: Speaker - Sergii Golovatiuk
 
