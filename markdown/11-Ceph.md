@@ -1,7 +1,5 @@
 # Ceph
 
-## Used for:
-
 - ephemeral storage <=> live migration
 - object and image storage shared
 - share host param for volume service
