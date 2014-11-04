@@ -31,8 +31,8 @@ Note: Speaker - Vladimir Kuklin:
 
 First of all, we needed to polish some of the corosync module code that we had at the
 time we forked it. We needed additional support for other pacemaker resources/entities
-such as location constraints and master/slave resources. This code was not in place so
-we wrote it. Then, in order to deploy pacemaker resources and to maintain almost the
+such as location constraints and master/slave resources. 
+ Then, in order to deploy pacemaker resources and to maintain almost the
 same puppet code we needed to implement pacemaker service provider for puppet. It
 parses output of Pacemaker Local Resource Managers in CIB respecting timeout values
 and monitor commands. Also in order to support complex OCF scripts such as scripts
@@ -56,7 +56,7 @@ Note: Speaker - Vladimir Kuklin:
 
 Our initial implementation of service provider and deployment workflow was not
 perfect as it was triggering restarts not only for the services on the particular
-node being deployed but globally. So we switched to asymmetric pacemaker cluster which
+node but globally. So we switched to asymmetric pacemaker cluster which
 does not start services by default. Then we refactored service provider to perform
 actions locally using pacemaker location constraints for start and stop actions. In
 order to make service actions local-wise we altered status method behaviour depending

@@ -11,9 +11,8 @@
 
 Note: Speaker - Vladimir Kuklin:
 
-To Provide High Availability to a system, we should provide connectivity to all components. No brainer. We will not cover High Availability for DataCenter components such as Power, Cooling, Chilling or Network Connectivity.
-
-Our primary focus is OpenStack Controllers and Compute nodes. So ...
+We will not cover High Availability for DataCenter.
+Our primary focus is OpenStack Controllers and Compute nodes.
 
 Network Connectivity: 
 

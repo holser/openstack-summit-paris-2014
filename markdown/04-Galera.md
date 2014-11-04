@@ -7,7 +7,7 @@ Why Galera? Sometimes, I hear that Galera is too complex. DRBD is an easy soluti
 
 What about master-slave?
 
-Master-Slave is well known good technology. However, at the moment there is no big difference between Galera and master-slave replication in terms of reliability.
+Master-Slave is well known good technology. However, at the moment there is no big difference between Galera and master-slave replication in terms of OpenStack reliability.
 
 Here is a classical diagram of Galera Implementation in Fuel. All services communicates with MySQL/Galera cluster via HAProxy. High Availability of HAProxy is based on Virtual IP, which is controlled by Pacemaker. As you can see that only one HAProxy instance serves read/write operations for MySQL. The problem was described by Peter Boros @ Percona as many OpenStack Services use SELECT ... FOR UPDATE SQL queries or don't have special functioninality to perform retry on failed SQL transactions.
 
