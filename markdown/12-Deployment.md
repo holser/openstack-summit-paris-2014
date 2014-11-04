@@ -78,8 +78,7 @@ Note: Speaker - Vladimir Kuklin:
 So as soon as we won a fight for deployment stability we moved to scalability and
 here is what we faced: we received initial feedback from our services guys that most
 of our customers do not have multicast enabled or correctly configured. This made us
-switch deployment to unicast one by default. And this was what really saddened us
-because we had to alter corosync configuration and restart it each time we wanted to
+switch deployment to unicast one by default. We had to alter corosync configuration and restart it each time we wanted to
 add a new controller. In order to make it work we modified init scripts for corosync
 to check for pacemaker and put it into maintenence mode. Also, we needed to limit
 amount of parallel controllers being deployed in order not to exhaust donor nodes

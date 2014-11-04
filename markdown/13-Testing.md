@@ -30,5 +30,5 @@ Speaker - Vladimir Kuklin
 
 So far, speaking of results that we achieved with HA installations is that we can
 easily handle single-failure-at-a-time tolerance for the whole OpenStack cluster
-whether these are networking problems, failure of DB, amqp or particuler OpenStack services. And this was not only confirmed by our tests but also by our most significant partners and customers including carrier-grade ones running extensive and rigorous testing saying that they still cannot break our HA setup.  
+whether these are networking problems, failure of DB, amqp or particular OpenStack services. And this was not only confirmed by our tests but also by our most significant partners and customers including carrier-grade ones running extensive and rigorous testing saying that they still cannot break our HA setup.  
 

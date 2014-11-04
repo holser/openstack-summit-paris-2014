@@ -12,8 +12,7 @@
 Note: Speaker - Sergii Golovatiuk:
 
 Multiple writes:
-With Galera Cluster, HAproxy still performs read/write operations to one server. OpenStack has SELECT ... FOR UPDATE queries. When 2 servers have write operation simultaneously, one of the servers will revert its own transaction, perform its neighbor's transaction, then repeat its DB transaction again. OpenStack Services should be aware of such manipulations. We work with OSLO.db developers to resolve these issues to have better balancing. We have plans to make OCF script master-slave based, allowing OpenStack Cloud operators to see status from **pcs** or **crm_mon**. 
-
+With Galera Cluster, HAproxy still performs read/write operations to one server. OpenStack components has SELECT ... FOR UPDATE queries. When 2 servers have write operation simultaneously, one of the servers will revert its own transaction, perform its neighbor's transaction, then repeat its DB transaction again. OpenStack Services should be aware of such manipulations. We work with OSLO.db developers to resolve these issues. We have plans to make OCF script master-slave based, allowing OpenStack Cloud operators to see status from **pcs** or **crm_mon**. 
 
 Speaker - Vladimir Kuklin:
 We want to handle the reschedule triggered by pacemaker and OCF along with utilizing VRRP and DVR mechanism for L3 agents. 
@@ -35,4 +34,4 @@ Despite some big cloud installations show that zeromq may be a useful replacemen
 
 HA tests:
 
-As we already have a well working testing framework for highly available deployment and we are really close to provide ability for community FUEL ISO to deploy vanilla openstack from particular commits, we are going to add HA tests gating to indicate whether each particular commit is not affecting HA.
+As we already have a well working testing framework for highly available deployment and we are really close to provide ability for community FUEL ISO to deploy vanilla openstack from particular commits, we are going to add HA tests gating to OpenStack jenkins to indicate whether each particular commit is not affecting HA.
