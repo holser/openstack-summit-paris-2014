@@ -2,12 +2,10 @@
 
 - AMQP - multiple rabbit connection included
 - OSLO.messaging lacks [heartbeats](https://bugs.launchpad.net/mos/+bug/856764):
-    - 1st heartbeat implementation was broken
-    - messaging code was still referencing dead objects
+    - 1st community heartbeat implementation was broken
     - even kernel could not help
-    - connections containing ZERO channels    
 
- <br /> <center><!-- .element: class="fragment" -->Good news: fix is on review </center>
+ <br /> <center><!-- .element: class="fragment" -->Good news: fix is on review <br /> https://review.openstack.org/126330 </center>
 
 Note: Speaker - Vladimir Kuklin
 
@@ -18,9 +16,7 @@ Note: Speaker - Vladimir Kuklin
  files along with shuffling of them to minimize effect of AMQP failover.
 
  But we had to rewrite part of oslo.messaging code to support AMQP heartbeats and
- handle connection failure scenarios. The first implementation was broken. Oslo code
- was not handling low-level exceptions and top-layer code was still referencing dead
- objects. Also, we noticed that there were some RPC consumers not consuming messages
- from the queues because some of the connections contained zero channels.
+ handle connection failure scenarios. The first community implementation was broken.
+ Even kernel killing connections could not make oslo fail over. 
 
  Good news is that we fixed it and pushed it to openstack gerrit. 
