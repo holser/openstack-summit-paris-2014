@@ -22,7 +22,7 @@ Note: Speaker - Sergii Golovatiuk:
 MySQL Server was upgraded to 5.6.11 with the latest Galera plugin. That resolved many stability issues.
 Mysqldump was replaced with xtrabackup from Percona. Xtrabackup doesn't lock database during State Snapshot Transfer. Also it has good performance allowing to synchronize really large databases.
 
-HAProxy was extended to perform simple checks against the database to avoid performing any DB operations against Donor/Desynced servers.
+HAProxy was extended to perform simple checks against the database to avoid performing any DB operations against Donor or Desynced servers.
 
 
 # MySQL/Galera - OCF script
@@ -36,7 +36,7 @@ Note: Speaker - Sergii Golovatiuk:
 
 Our previous implementation of OCF script was fragile and didn't reassemble the cluster in many conditions. The new version was rewritten from scratch which allows to bringGalera cluster back online without any interruptions.
 
-The general idea is to select Primary Component with the most recent data. OCF script gets the most recent GTID and keeps values in Pacemaker Cluster Information Base. In case of problems OCF script gets the data from grastate file allowing to bootstrap cluster. Pacemaker uses this data to find the most up-to-date server for Primary Component election. In case of scenario where all Controllers are down, Pacemaker waits for neighbours for 5 minutes. If neighbours are stuck on fsck or grub prompt, Pacemaker will start with all available nodes.
+The general idea is to select Primary Component with the most recent data. OCF script gets the most recent GTID and keeps values in Pacemaker Cluster Information Base. In case of problems OCF script gets the data from grastate file allowing to bootstrap cluster. Pacemaker uses this data to find the most up-to-date server for Primary Component. In case of scenario where all Controllers are down, Pacemaker waits for neighbours for 5 minutes. If neighbours are stuck on fsck or grub prompt, Pacemaker will start with all available nodes.
 
 On monitor function, OCF script finds the cases when node went out of sync. Though, it correctly finds Donor/Desync state allowing nodes to perform State Snapshot Transfer (SST)
 
